@@ -1,0 +1,62 @@
+package com.example.resources
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.pluralStringResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
+import com.example.resources.ui.theme.ResourcesTheme
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContent {
+            ResourcesTheme {
+                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    Column(Modifier.padding(innerPadding)) {
+                        Text(stringResource(R.string.welcome),
+                            fontSize = 28.sp)
+                        Text(stringResource(R.string.message,"ISPP-34,45"),
+                            fontSize = 28.sp)
+                        Button({}) {
+                            Text(stringResource(R.string.send_button))
+                        }
+                        Text(pluralStringResource(R.plurals.cats,1,1),
+                            fontSize = 28.sp)
+                        Text(pluralStringResource(R.plurals.cats,15,15),
+                            fontSize = 28.sp)
+                    }
+                }
+            }
+        }
+
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="welcome">Welcome</string>
+    <string name="send_button">Send</string>
+</resources>
+<resources>
+    <string name="app_name">Resources</string>
+    <string name="welcome">Добро пожаловать</string>
+    <string name="send_button">Отправить</string>
+    <string name="message">Hello %1$s</string>
+
+    <plurals name="cats">
+        <item quantity="one">%d котик</item>
+        <item quantity="few">%d котика</item>
+        <item quantity="many">%d котиков</item>
+        <item quantity="other">%d котиков</item>
+    </plurals>
+</resources>
