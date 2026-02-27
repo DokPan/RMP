@@ -1,0 +1,218 @@
+
+@Composable
+fun Task2Column(){
+    Column {
+        Text("Дапро пажалавать", color= Color.White)
+        Button({}) {
+            Text("OK")
+        }
+    }
+}
+
+@Composable
+fun Task2Row(){
+    Row{
+        Text("Дапро пажалавать", color= Color.White)
+        Button({}) {
+            Text("OK")
+        }
+    }
+}
+
+@Composable
+fun Task2Box(){
+    Box{
+        Text("Дапро пажалавать", color= Color.White)
+        Button({}) {
+            Text("OK")
+        }
+    }
+}
+
+@Preview
+@Composable
+fun Task2ColumnPreview(){
+    Task2Column()
+}
+
+@Preview
+@Composable
+fun Task2RowPreview(){
+    Task2Row()
+}
+
+@Preview
+@Composable
+fun Task2BoxPreview(){
+    Task2Box()
+}
+
+@Composable
+fun Task3Box() {
+    Box(
+        modifier = Modifier
+            .size(200.dp, 400.dp)
+            .background(Color.White)
+    ) {
+        Box(
+            modifier = Modifier
+                .size(40.dp, 60.dp)
+                .align(Alignment.TopStart)
+                .background(Color.Red)
+        )
+
+        Box(
+            modifier = Modifier
+                .size(40.dp, 60.dp)
+                .align(Alignment.CenterStart)
+                .background(Color(50, 148, 30))
+        )
+
+        Box(
+            modifier = Modifier
+                .size(40.dp, 60.dp)
+                .align(Alignment.BottomStart)
+                .background(Color.Blue)
+        )
+
+        Box(
+            modifier = Modifier
+                .size(40.dp, 60.dp)
+                .align(Alignment.TopCenter)
+                .background(Color(66, 147, 209))
+        )
+
+        Box(
+            modifier = Modifier
+                .size(40.dp, 60.dp)
+                .align(Alignment.TopEnd)
+                .background(Color(235, 137, 0))
+        )
+
+        Box(
+            modifier = Modifier
+                .size(40.dp, 60.dp)
+                .align(Alignment.CenterEnd)
+                .background(Color(255, 163, 235))
+        )
+
+        Box(
+            modifier = Modifier
+                .size(40.dp, 60.dp)
+                .align(Alignment.BottomEnd)
+                .background(Color.Yellow)
+        )
+
+        Box(
+            modifier = Modifier
+                .size(40.dp, 60.dp)
+                .align(Alignment.BottomCenter)
+                .background(Color.Gray)
+        )
+
+        Box(
+            modifier = Modifier
+                .size(160.dp, 360.dp)
+                .align(Alignment.Center)
+                .background(Color.Black)
+        )
+    }
+}
+
+@Preview
+@Composable
+fun Task3BoxPreview() {
+    Task3Box()
+}
+
+@Composable
+fun Task3Column() {
+    Column(
+        modifier = Modifier
+            .size(200.dp, 400.dp)
+    ) {
+        Box(
+            modifier = Modifier
+                .weight(5f)
+                .fillMaxWidth()
+                .background(Color(255, 238, 251))
+        ){
+            Text("5%")
+        }
+
+        Box(
+            modifier = Modifier
+                .weight(15f)
+                .fillMaxWidth()
+                .background(Color(255, 221, 247))
+        ){
+            Text("15%")
+        }
+
+        Box(
+            modifier = Modifier
+                .weight(30f)
+                .fillMaxWidth()
+                .background(Color(255, 204, 243))
+        ) {
+            Text("30%")
+        }
+
+        Box(
+            modifier = Modifier
+                .weight(50f)
+                .fillMaxWidth()
+                .background(Color(255, 187, 239))
+        ){
+            Text("50%")
+        }
+    }
+}
+
+
+@Preview
+@Composable
+fun Task3ColumnPreview() {
+    Task3Column()
+}
+
+@Composable
+fun Task5() {
+    val items = listOf("Первый", "Второй", "Третий", "Четвертый", "Пятый")
+
+    Column {
+        for (item in items) {
+            Text(
+                text = item,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp)
+                    .background(Color(255, 87, 216))
+                    .padding(16.dp),
+                textAlign = TextAlign.Center
+            )
+        }
+    }
+}
+
+@Preview
+@Composable
+fun Task5Preview() {
+    Task5()
+}
+
+var login by remember { mutableStateOf("") }
+    var password by remember { mutableStateOf("") }
+
+    Column(modifier = Modifier.fillMaxSize().padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally) {
+        Text("Login")
+        TextField(value = login,
+            onValueChange = {login=it})
+
+        Text("Password")
+        TextField(value = password,
+            onValueChange = {password=it})
+
+        Button({}) {
+            Text("Authorization")
